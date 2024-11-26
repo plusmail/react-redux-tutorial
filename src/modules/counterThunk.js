@@ -1,12 +1,7 @@
-//상수
-import {createAction, handleAction, handleActions} from "redux-actions";
+import {createAction, handleActions} from "redux-actions";
 
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
-
-//액션 함수
-// export const increase = ()=> ({type:INCREASE});
-// export const decrease = ()=> ({type:DECREASE});
 
 export const increase = createAction(INCREASE);
 export const decrease = createAction(DECREASE);
@@ -22,15 +17,12 @@ export const decreaseAsync = () => dispatch => {
     }, 1000)
 }
 
-
-
-
 // state 초기값
 const initialState= {
     number: 0
 };
 
-const counter = handleActions(
+const counterThunk = handleActions(
     {
         [INCREASE] : (state, action) => ({
             number: state.number +1
@@ -41,24 +33,4 @@ const counter = handleActions(
     }, initialState
 )
 
-//
-// // Reducer함수
-// function counter(state=initialState , action ){
-//     switch (action.type) {
-//         case INCREASE:
-//
-//             return {
-//                 number: state.number + 1
-//             }
-//         case DECREASE:
-//
-//             return {
-//                 number: state.number - 1
-//             }
-//         default:
-//             return state
-//     }
-//
-// }
-
-export default counter;
+export default counterThunk;

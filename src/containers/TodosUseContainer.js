@@ -5,11 +5,13 @@ import {useCallback} from "react";
 
 // connect(state, dispatch)
 const TodosContainer = () => {
+    // useSelector은 Store에 있는 state를 바로 꺼내 사용
     const {input, todos} = useSelector(({todos})=>({
         input : todos.input,
         todos : todos.todos
     }));
 
+    // useDispatch도 Store에 reducer 액션 함수를 바로 호출 하도록
     const dispatch = useDispatch();
     const onChangeInput = useCallback(
         input => dispatch(changeInput(input)),[dispatch]
