@@ -1,4 +1,6 @@
 
+// {loadingPost, loadingUsers, post, users}
+// 는 SampleContainer에서 connect로 Store에 연결한 것을 props로 전달
 const Sample = ({loadingPost, loadingUsers, post, users})=>{
 
     return (
@@ -22,7 +24,7 @@ const Sample = ({loadingPost, loadingUsers, post, users})=>{
                         {
                             users.map(user => (
                                 <li key={user.id}>
-                                    {user.username} -- ({user.email})
+                                    {user.name}--{user.username} -- ({user.email})
                                 </li>
                             ))
                         }

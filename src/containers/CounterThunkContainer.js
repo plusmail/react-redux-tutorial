@@ -1,6 +1,7 @@
 import Counter from '../components/Counter';
-import {connect, useDispatch, useSelector} from "react-redux";
+import {connect} from "react-redux";
 import {decreaseAsync, increaseAsync} from "../modules/counterThunk";
+
 
 const CounterThunkContainer = ({number, increaseAsync, decreaseAsync})=>{
 
@@ -14,7 +15,7 @@ export default connect(
         number: state.counter.number,
     }),{
         increaseAsync,
-        decreaseAsync
+        decreaseAsync,
     }
 )(CounterThunkContainer)
 
